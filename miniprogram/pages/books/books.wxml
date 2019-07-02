@@ -10,7 +10,7 @@
 <view class='category_list' wx:if="{{!onsearch}}">
     <view>
         <image src='../../images/计算机.png' class='icon_imag'></image>
-        <text class='icon_name'>计算与技术</text>
+        <text class='icon_name'>计算机科学与技术</text>
     </view>
     <view>
         <image src='../../images/网络空间安全.png' class='icon_imag'></image>
