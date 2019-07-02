@@ -1,0 +1,35 @@
+/* pages/demo-search/demo-search.wxss */
+@import "/wxSearch/wxSearch.wxss";
+
+.category_list{
+  margin: 10px;
+  position: relative;
+  top: 20vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.icon_imag{
+  position: relative;
+  margin: 0;
+  display: flex;
+  width: 17vh;
+  height: 17vh;
+  justify-content: center;
+  align-items: center;
+  border:1pt  rgb(126, 222, 247) solid;
+}
+
+.icon_name{
+  position: relative;
+  top: 0;
+  left: 0;
+  font-size: 12px;
+  font-weight:400;
+}
+
+ 
+
+

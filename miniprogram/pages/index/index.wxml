@@ -1,0 +1,36 @@
+<!--index.wxml-->
+<view class="head">lalalalala</view>
+
+<scroll-view class="container" scroll-y style="flex:1;overflow:hidden;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+
+<view class="bookcontainer" >
+
+<view class="nameandpricecontainer">
+<view class="name"><!--书名的盒子-->
+<view >书名:冰与火之歌</view>
+</view >
+<view class="price"><!--价格的盒子-->
+<view>价格：20元</view>
+</view>
+</view>
+
+<view class="information"><!--简介的盒子-->
+<view>简介：一成新，十分适合阅读,enen,真的很优秀，这本书，非常好看</view>
+</view>
+
+<view class="imagecontainer"><!--图片的盒子-->
+<image class="images" src="{{book.src1}}"></image>
+<image class="images" src="{{book.src2}}"></image>
+<image class="images" src="{{book.src3}}"></image>
+<image class="images" src="{{book.src4}}"></image>
+</view>
+
+<view class="tel"><!--联系方式的盒子-->
+<view>联系方式：13785139103</view>
+</view>
+
+</view>
+</scroll-view>
+
+
+

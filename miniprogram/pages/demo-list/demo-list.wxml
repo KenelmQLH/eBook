@@ -1,0 +1,6 @@
+<!--pages/demo-list/demo-list.wxml-->
+<image src='../../imag/标签.png' class='tag-image'></image>
+<text class='tag-text'>计算机科学与技术</text>
+<view class='list' wx:for = "{{Grouplist}}">
+    <view>{{item}}</view>
+</view>

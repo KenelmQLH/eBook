@@ -1,0 +1,48 @@
+<!--pages/mine/mine.wxml-->
+<view class="container_v">
+  <view class="base">
+    <view class="avatar">
+      <image mode="aspectFit" style="width:120rpx;height:120rpx;border-radius:50%;" src="{{userImg}}"></image>
+    </view>
+
+    <view class="info">
+      <view class="nickname">{{userName}}</view>
+      <view class="time">{{userPhoneNumber}}{{" "}}{{userWeixingNumber}}</view>
+    </view>
+  </view>
+
+  <view class='mysubmits'>
+    <navigator>我的动态</navigator>
+  </view>
+
+  <block wx:key="*this" wx:for="{{mybooks}}">
+    <view class="section">
+
+      <view class="sectino_upper">
+        <view class="column_1">
+          <image mode="aspectFit" style="width:160rpx;height:160rpx;" src="../../images/boy.png"></image>
+        </view>
+
+        <view class="column_2">
+          <view class="column_2_1">
+            <view class="info_1">书名：{{item.bookname}}</view>
+            <view class="info_1">价格：{{item.price}}</view>
+          </view>
+
+          <view class="column_2_2" style="font-size:32rpx;">
+            <view>详细信息：{{item.info}}</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="section_bottom">
+        <button>删除发布</button>
+      </view>
+    </view>
+  </block>
+
+  <view id="add_pos" bindtap='jumpAdd'>
+    <image id="add" mode="aspectFit" src="../../images/add.png"></image>
+  </view>
+
+</view>

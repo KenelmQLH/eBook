@@ -1,0 +1,152 @@
+/* pages/addBook/addBook.wxss */
+/*头部标题*/
+/**app.wxss**/
+.container_2 {
+  height: 100vh;
+  width: 100vw;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+} 
+
+
+.top{
+  height:100rpx;
+  margin:0;
+  text-align: center;
+  /*
+  background:#0099ff1e;
+  border:1px #454546;
+  border-radius: 100rps;
+  */
+  color: black;
+  font-size: 60rpx;
+}
+
+.section{
+	margin:10px 20px; 
+	display:flex;
+	border-bottom:1px solid #ccc;
+	padding:15px 0;
+  width:90vw;
+}
+
+.section_title{
+  font-size:32rpx;
+	width:25%;
+}
+
+.section_input{
+	width:75%;
+	line-height:25px;
+	border:1px solid #ccc;
+}
+
+
+/*
+.section{
+  flex-direction: row;
+  display: flex;
+  align-items: center;    //堆起来的“行整体”在竖直方向的中间
+  justify-content: flex-start;  //堆起来的“行整体”在水平方向的左边
+
+  height:60rpx;
+  margin-top:20rpx;
+  margin-bottom: 20rpx;
+  width:90%;
+}
+.section_title{
+  width:25%;
+  height:60rpx;
+  margin:0;
+  font:30rpx;
+  display:inline-block;
+}
+.section_info{
+  width:75%;
+  height:60rpx;
+  background:white;
+  margin:0;
+  border:1px #454546;
+  display:inline-block;
+}*/
+
+.section_last{
+
+  margin:10px 20px; 
+	display:flex;
+  flex-direction: column;
+  justify-content: flex-start; /*堆起来的“列整体”在竖直的上边*/
+  align-items: flex-start;    /*堆起来的“列整体”在水平的左边*/
+
+	border-bottom:1px solid #ccc;
+	padding:15px 0;
+  width:90vw;
+
+}
+.section_title_two{
+  font-size:32rpx;
+  width:100%;
+  height:60rpx;
+  /*font:30rpx;*/
+  display:inline-block;
+}
+.section_input_two{
+  background:white;
+  width:100%;
+  height:100rpx;
+  /*border:1px #454546;*/
+  display:inline-block;
+}
+
+.uploader{
+  height:140rpx;
+  width: 100%;
+  padding:0;
+  margin: 0;
+  background-color:white; 
+
+  display: flex; 
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.uploader-image{
+  height: 150rpx;
+  width: 150rpx;
+  margin: 0 9rpx;
+  padding: 0;
+  box-sizing:border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.uploader-add{
+  height: 150rpx;
+  width: 150rpx;
+  border:2px black;
+  margin: 0;
+  padding: 0rpx;
+  box-sizing:border-box;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.submit{
+  margin:20px 20px; 
+  
+  width:90vw;
+  height:80rpx;
+  display:flex;
+  
+  box-sizing:border-box;
+}

@@ -1,0 +1,33 @@
+/* pages/demo-list/demo-list.wxss */
+.tag-image{
+  height: 8vh;
+  width:10vh;
+}
+.tag-text
+{
+  font-size: 17px;
+  font-weight: 400;
+  color: rgb(27, 163, 197)
+}
+
+
+.list {
+  position: relative;
+  top: 3vh;
+  margin: 5vh;
+  display: flex;  
+  flex-direction:column;
+} 
+
+.list view{
+  margin-top: 0;
+  border: 1pt rgb(57, 228, 143) solid;
+  border-radius: 30px;
+  width:100%; 
+  height:100rpx;
+  text-align: center;
+  line-height: 100rpx;
+  color: rgb(8, 98, 233);
+  font-weight: 400;
+  font-size: 16px;
+}

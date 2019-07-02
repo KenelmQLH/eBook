@@ -1,0 +1,41 @@
+<!--pages/addBook/addBook.wxml-->
+
+<form bindsubmit="formSubmit"  class="container_2">
+  <view class="top">填写书籍信息</view>   
+
+  <view class="section">
+    <view class="section_title">书名：</view>
+    <input class="section_input" maxlength="20" name="bookName"  maxlength="20" placeholder="请输入书名"/>
+  </view>
+
+  <view class="section">
+    <view class="section_title">出售价格：</view>
+    <input class="section_input" maxlength="6" name="price"  placeholder="请输入价格"/>
+  </view>
+
+  <view class="section_last">
+    <view class="section_title_two"> 书本信息：</view>
+    <textarea class="section_input_two" name="bookInfo" maxlength='100' placeholder="几成新/特点/对买主的话"/><!--还需要查看一下字数限制及显示-->
+  </view>
+  
+  <view class="section_last">
+    <view class="section_title_two">添加照片：</view>
+
+    <view class="uploader">
+      <view class="uploader-image"  wx:for="{{tempFilePaths}}" wx:key="*this">
+        <image class="preview-image" src="{{item}}" mode="aspectFit" style="width:100rpx;height:100rpx;" data-idx="{{index}}" bindtap="handleImagePreview"></image>
+          <view style="width:100rpx;height:30rpx;font-size:25rpx;text-align:center;" data-idx="{{index}}" bindtap="removeImage">删除</view>
+      </view>
+
+      <view class="uploader-add" wx:if="{{tempFilePaths.length<4}}" bindtap="chooseImg">
+        <image class="add-image" wx:if="{{picNum < 4}}"src="../../images/addPic.png" mode="aspectFit" style="width:100rpx;height:100rpx;display:block;"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="submit">
+    <button type="primary" formType="submit" style='width:100%;'>提交</button>
+  </view>
+
+</form>
+
