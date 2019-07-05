@@ -1,36 +1,49 @@
 <!--index.wxml-->
-<view class="head">lalalalala</view>
+<view class="body">
 
-<scroll-view class="container" scroll-y style="flex:1;overflow:hidden;" bindscrolltoupper="upper" bindscrolltolower="lower" bindscroll="scroll" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+ <swiper indicator-dots="{{indicatorDots}}"  autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" circular="true">  
+         <block wx:key="*this" wx:for="{{imgUrls}}">  
+           <swiper-item class="imgtop">  
+              <navigator url="{{item.link}}" hover-class="navigator-hover">  
+               <image src="{{item.url}}" class="slide-image" />  
+              </navigator>  
+           </swiper-item>  
+         </block>  
+ </swiper>
 
-<view class="bookcontainer" >
+<!--bindscrolltoupper="upper" bindscroll="scroll"-->
+<scroll-view class="container" scroll-y style="flex:1;overflow:hidden;"  bindscrolltolower="lower" scroll-into-view="{{toView}}" scroll-top="{{scrollTop}}">
+<view class='cannot' wx:if="{{ifhave==false}}">
+    <image src='../../images/cannotfind.png'></image>
+    <text>未找到您查询的书籍</text>
+</view>
+<view class="bookcontainer" wx:for="{{mybook}}" wx:key="this"><!--书本的容器-->
 
 <view class="nameandpricecontainer">
+
 <view class="name"><!--书名的盒子-->
-<view >书名:冰与火之歌</view>
+<view >{{item.bookname}}</view>
 </view >
 <view class="price"><!--价格的盒子-->
-<view>价格：20元</view>
+<view>{{item.price}}元</view>
 </view>
 </view>
 
 <view class="information"><!--简介的盒子-->
-<view>简介：一成新，十分适合阅读,enen,真的很优秀，这本书，非常好看</view>
+<view>{{item.info}}</view>
 </view>
 
-<view class="imagecontainer"><!--图片的盒子-->
-<image class="images" src="{{book.src1}}"></image>
-<image class="images" src="{{book.src2}}"></image>
-<image class="images" src="{{book.src3}}"></image>
-<image class="images" src="{{book.src4}}"></image>
+<view class="imagecontainer" ><!--图片的盒子-->
+<image class="images" wx:key="*this" wx:for="{{item.picPaths}}"  wx:for-item="itemName" src="{{'cloud://books-info-mqg58.626f-books-info-mqg58/'+itemName}}" data-src='{{itemName}}' bindtap='large'></image>
 </view>
+
 
 <view class="tel"><!--联系方式的盒子-->
-<view>联系方式：13785139103</view>
+<view>联系方式：{{item.phoneNumber}}/{{item.weixinNumber}}</view>
 </view>
 
 </view>
 </scroll-view>
 
-
+</view>
 

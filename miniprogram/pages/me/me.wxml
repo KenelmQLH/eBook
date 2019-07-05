@@ -1,0 +1,78 @@
+<!--<import src="../../template/template.wxml"/>-->
+
+<view class="container">
+  <view class="base">
+    <!-- 添加头像 -->
+    <view class="avatar">
+     <image class='avatar' src="{{userImg}}"></image>
+    </view>  
+
+    <view class="info">
+      <view class="nickname">
+        <view class='newword'>{{userName}}</view>
+      </view>
+      <!-- 添加手机号和微信号 -->
+      <view class=" Authentication">
+        <view class='autho'>Phone:{{userPhoneNumber}}</view>
+        <view class='autho'>Weixing:{{userWeixingNumber}}</view>
+      </view>
+    </view>
+
+    <!-- <view class="cinformation">修改信息</view> -->
+    <view class='cinformation'>
+      <navigator url='/pages/change/change'>修改信息</navigator>
+    </view>
+  </view>
+
+    <!--
+  <view class="ext">
+    <view>
+      <text class="key">我的宝贝：</text>
+      <text class="value">{{ fans }}</text>
+    </view>
+    <view>
+      <text class="key">关注的宝贝：</text>
+      <text class="value">{{ follow }}</text>
+    </view>
+  </view>
+    -->
+ <view class="content">
+    <view class="navbg">
+     <view id='0' class="{{currentTab==0?'select':'normal'}}" bindtap='switchNav'>我的发布</view>
+     <view id='1' class="{{currentTab==1?'select':'normal'}}" bindtap='switchNav'>已完成</view>
+  </view> 
+   <!-- 添加对应的添加页面的地址 -->
+    <scroll-view scroll-y class='all_details'>
+      <block class="section_container" wx:key="*this" wx:for="{{my_books}}">
+
+        <view class="section">
+          <view class="sectino_upper">
+            <view class="column_1">
+              <image mode="aspectFit" style="width:160rpx;height:160rpx;" src="{{'cloud://books-info-mqg58.626f-books-info-mqg58/'+item.picPaths[0]}}"></image>
+            </view>
+            <view class="column_2">
+              <view class="column_2_1">
+                <view class="info_1">书名：{{item.bookname}}</view>
+                <view class="info_1">价格：{{item.price}}</view>
+              </view>
+
+              <view class="column_2_2" style="font-size:32rpx;">
+                <view>详细信息：{{item.info}}</view>
+              </view>
+            </view>
+          </view>
+
+          <view class="section_bottom">
+            <button data-book-name="{{item.bookname}}" data-book-id="{{item._id}}" catchtap="deleteBook">删除发布</button>
+          </view>
+
+        </view>
+      </block>
+    </scroll-view >
+ </view>
+
+  <view id="add_pos" bindtap='jumpAdd'>
+    <image id="add" mode="aspectFit" src="../../images/add.png"></image>
+  </view>
+</view>
+<!--<template is="tabBar" data="{{tabBar:bindData.tabBar}}"/>-->

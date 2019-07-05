@@ -1,0 +1,247 @@
+page {
+  background: #f8f8f8;
+}
+/*------------个人信息------------*/
+.base {
+  width: 700rpx;
+  display: flex;
+  flex-direction: row;
+  margin-top: 20rpx;
+  padding-bottom:20rpx;
+  justify-content: center;
+  align-items: center;
+  border-bottom:1px solid #ccc;
+}
+/*--------头像------------*/
+.avatar {
+  width: 150rpx;
+  height: 150rpx;
+  margin-right: 20rpx;
+  border-radius: 50%;
+  background: #dee6e6;
+}
+/*--------信息------------*/
+.info {
+  width:440rpx;
+
+  display:flex;
+  flex:1;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.nickname {
+  width: 100%;
+  height: 60rpx;
+  line-height: 75rpx;
+  /*background: #fff;*/
+  font-size:30rpx;
+  padding-left:10rpx;
+  margin-bottom: 5rpx;
+}
+.Authentication {
+  margin-top: 5rpx;
+  padding-left:10rpx;
+  width: 100%;
+  height: 75rpx;
+  /*background: #fff;*/
+}
+
+.newword{
+ color: #000000;
+ text-align: 5rpx; 
+
+ font-size: 30rpx;
+ align-self: center;
+ justify-self: center;
+}
+.autho{
+  color: #000;
+  height:30rpx;
+  font-size:26rpx;
+  line-height: 30rpx;
+}
+
+
+/*--------“修改信息”------------*/
+
+.cinformation{
+  width: 160rpx;
+  height: 80rpx;
+  float: right;
+  color: white;
+  
+  border-radius: 20rpx;
+  background-color: rgba(248, 41, 41, 0.863);
+  margin-left: 20rpx;
+  font-size: 16px;
+
+  text-align: center;  
+  line-height: 80rpx;
+}
+
+/****----------第二行-------------------***/
+.ext {
+  width: 100%;
+  padding-top: 30rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.ext .key {
+  font-size: 35rpx;
+  color: #535353;
+}
+
+/****----------第三行-------------------***/
+.content{
+  height: 800rpx;
+  width:700rpx;
+  border-radius: 10px;
+  background-color: #f4f4f4;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+
+  display: felx;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.navbg{
+  width: 100%;
+  background-color: white;
+  height: 40px;
+  
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  
+  display: flex;
+  flex-direction: row;
+
+}
+.select{
+  width: 50%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 30rpx;
+  margin: 0 auto;
+
+  color: white;
+  background-color: #898989;
+}
+
+.normal{
+  width: 50%;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  font-size: 30rpx;
+  margin: 0 auto;
+
+  color: black;
+}
+/*****-------书籍内容--------******/
+.all_details{
+  height: 700rpx;
+  width: 100%;
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /*border-radius: 10px;*/
+  padding: 0;
+  box-sizing: border-box;
+}
+.section_container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.section{
+  width:650rpx;     /*------------------------注意!!!!!!!----------------------*/
+  height:300rpx;
+  background-color:#898989;
+  border-radius:40rpx;
+  margin-top:40rpx;
+  margin-bottom:40rpx;  
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  box-sizing: border-box;
+}
+
+.sectino_upper{
+  height:200rpx;
+  width:100%;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.column_1{
+  width:200rpx;
+  height: 200rpx;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.column_2{
+  width:480rpx;
+  height:200rpx;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+}
+.column_2_1{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+}
+.info_1{
+  width:240prx;
+  text-align:left;
+  font-size:32rpx; 
+}
+
+
+.sectino_bottom{
+  height:70%;
+  width:100%;
+  background-color: white;
+}
+
+
+
+/************---------按钮---------**************/
+#add_pos{
+    width: 160rpx;
+    height: 160rpx;
+    position: absolute;
+    bottom: 30rpx;
+    right: 10rpx;
+    
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#add{
+  width:160rpx;
+  height:160rpx; 
+}

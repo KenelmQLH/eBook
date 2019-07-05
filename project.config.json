@@ -9,10 +9,11 @@
 		"newFeature": true
 	},
 	"appid": "wxbbcbb18b6d745a04",
-	"projectname": "qin-v2",
+	"projectname": "qin-v2-Stable",
 	"libVersion": "2.2.5",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"cloudfunctionTemplateRoot": "cloudfunctionTemplate",
 	"condition": {
 		"search": {
 			"current": -1,

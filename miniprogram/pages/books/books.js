@@ -1,4 +1,5 @@
 // pages/demo-search/demo-search.js
+
 var WxSearch = require('../../wxSearch/wxSearch.js');
 Page({
 
@@ -6,19 +7,21 @@ Page({
    * 页面的初始数据
    */
   data: {
-    onsearch:null
+    onsearch:null,
+    currentkey:null,
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function () {
     console.log('onLoad');
+     //template.tabbar("tabBar", 2, this)//1表示第二个tabbar
     this.setData({
       onsearch:false
     })
     var that = this;
       //初始化的时候渲染wxSearchdata
-    WxSearch.init(that, 43, ['高等数学', '线性代数', '算法设计与分析', '信号与系统', '中国近代史纲要']);
+    WxSearch.init(that, 43, ['高等数学', '线性代数', '算法设计与分析', '信号与系统']);
     WxSearch.initMindKeys(['高等数学', '线性代数', '算法设计与分析', '信号与系统', '中国近代史纲要']);
   },
 
@@ -66,6 +69,17 @@ Page({
   wxSearchTap: function (e) {
     var that = this
     WxSearch.wxSearchHiddenPancel(that);
+  },
+
+  getlist:function(e){
+    let tagname = e.currentTarget.id;
+    console.log(tagname);
+    wx.navigateTo({
+      url: '../demo-list/demo-list?bookclass='+tagname,
+      success:function(res){
+        console.log(res);
+      }
+    })
   },
 
   /**

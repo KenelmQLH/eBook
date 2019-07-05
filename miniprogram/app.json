@@ -1,16 +1,19 @@
 {
   "pages": [
-    "pages/books/books",
     "pages/login/login",
-    "pages/mine/mine",
-    "pages/addBook/addBook"
+    "pages/books/books",
+    "pages/me/me",
+    "pages/index/index",
+    "pages/addBook/addBook",
+    "pages/change/change",
+    "pages/demo-list/demo-list"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "backgroundColor": "#eeeeee",
     "enablePullDownRefresh": true,
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
+    "navigationBarTitleText": "易旧书",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {
@@ -22,7 +25,7 @@
         "selectedIconPath": "images/books.png"
       },
       {
-        "pagePath": "pages/mine/mine",
+        "pagePath": "pages/me/me",
         "text": "我的",
         "iconPath": "images/home_dis.png",
         "selectedIconPath": "images/home.png"

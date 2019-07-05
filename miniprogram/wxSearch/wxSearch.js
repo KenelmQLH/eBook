@@ -1,5 +1,6 @@
 var __keysColor = [];
 var __mindKeys = [];
+const app = getApp();
 function initColors(colors) {
   __keysColor = colors;
 }
@@ -55,6 +56,7 @@ function wxSearchInput(e, that, callBack) {
       }
     }
   }
+  /*构建了输入的内容*/
   temData.value = text;
   temData.mindKeys = mindKeys;
   that.setData({
@@ -107,6 +109,7 @@ function wxSearchBlur(e, that, callBack) {
   var temData = that.data.wxSearchData;
 
   temData.value = e.detail.value;
+  temData.view.isShow = false;
 
   that.setData({
 
@@ -191,27 +194,26 @@ function getHisKeys(that) {
     // Do something when catch error
 
   }
-
-
-
 }
 
 function wxSearchAddHisKey(that) {
 
   wxSearchHiddenPancel(that);
-
   var text = that.data.wxSearchData.value;
-
+  app.data.onsearch_name = text;
   if (typeof (text) == "undefined" || text.length == 0) { return; }
-
   var value = wx.getStorageSync('wxSearchHisKeys');
-
+  wx.navigateTo({
+    url: '../index/index',
+    success:function(res){
+      console.log(res)
+    }
+  })
   if (value) {
 
     if (value.indexOf(text) < 0) {
 
       value.unshift(text);
-
     }
 
     wx.setStorage({
@@ -225,7 +227,6 @@ function wxSearchAddHisKey(that) {
         getHisKeys(that);
 
       }
-
     })
 
   } else {
@@ -249,11 +250,6 @@ function wxSearchAddHisKey(that) {
     })
 
   }
-
-
-
-
-
 }
 
 function wxSearchDeleteKey(e, that) {

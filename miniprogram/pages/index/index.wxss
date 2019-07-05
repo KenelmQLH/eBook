@@ -1,9 +1,37 @@
 /**index.wxss**/
+swiper{
+  height:400rpx;
+}
+.imgtop{
+  margin:10rpx 15rpx;
+}
+.slide-image{ 
+  width:710rpx;
+  height:400rpx;
+}
 .head{
-  width:100%;
-  height:100px;
-  background-color: yellow;
-  
+display: -webkit-flex;
+display: flex;
+-webkit-flex-direction: row;
+flex-direction: row;
+margin: 2px;
+}
+.head_images{
+width:17%;
+height:41px;
+margin-top: 10px;
+margin-left: 70px;
+}
+.cannot{
+  margin: 30rpx;
+  position: relative;
+  top: 10rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  align-items: center;
+  font-size: 15px;
 }
 .bookcontainer{
 display: -webkit-flex;
@@ -11,14 +39,12 @@ display: flex;
 -webkit-flex-direction: column;
 flex-direction: column;
 width:90%;
-height:220px;
-background-color: white;
+background-color: whitesmoke;
 border-style: outset;
 border-radius: 20px;
-border-color: aqua;
 margin: auto;
+margin-top: 20px;
 flex-wrap: wrap;
-
 }
 .nameandpricecontainer{
 display: -webkit-flex;
@@ -34,14 +60,18 @@ margin: 2px;
   margin-bottom: 10px;
 }
 .price{
+  color:blue;
   margin-top: 10px;
   margin-left: 10px;
 
 }
 .information{
-  
-  margin:10px;
-
+  width: 90%;
+  font-size: 13px;
+  border-bottom: solid 1px aqua;
+  margin:0;
+  padding:12px;
+  flex-wrap: wrap;
 }
 
 .imagecontainer{
@@ -51,17 +81,16 @@ display: flex;
 flex-direction: row;
 width:90%;
 height:50px;
-background-color: red;
 margin: auto;
 }
 
 .images{
-width:20%;
-height:35px;
-background-color:purple;
-margin: 10px;
+width:24%;
+height:55px;
+margin: 2px;
 }
 .tel{
+  font-size: 17px;
   margin-top:10px;
   margin-bottom: 10px;
   margin-left: 100px;

@@ -1,0 +1,30 @@
+  <template name="tabBar">
+  <view class="cu-bar tabbar margin-bottom-xl bg-white adjust">
+    
+    <navigator open-type="reLaunch" url="../../pages/books/books">
+      <view class="action text-green">
+        <view class="cuIcon-homefill"></view>旧书
+      </view>
+    </navigator>
+    <!--
+    <view class="action text-gray">
+      <view class="cuIcon-similar"></view> 分类
+    </view>
+    -->
+    <navigator open-type="reLaunch" url='"../../pages/addBook/addBook"'>
+      <view class="action text-gray add-action" >
+        <button class="cu-btn cuIcon-add bg-green shadow"></button>
+        发布
+      </view>
+    </navigator>
+    
+    <navigator open-type="reLaunch" url="../../pages/me/me">
+    <view>
+      <view class="cuIcon-my"  class="action text-gray">
+        <view class="cu-tag badge"></view>
+      </view>
+      我的
+    </view>
+    </navigator>
+  </view>
+  </template>

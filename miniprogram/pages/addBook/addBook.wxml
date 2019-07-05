@@ -9,6 +9,16 @@
   </view>
 
   <view class="section">
+    <view class="section_title">分类：</view>
+    <picker class="pick_chooser" bindchange="bindPickerChange" value="{{pick_index}}" range="{{pick_array}}">
+      <view class="picker">
+        当前选择：{{pick_array[pick_index]}}
+        <image mode="aspectFit" style="width:40rpx;height:40rpx;" src='../../images/showing.png'></image>
+      </view>
+    </picker>
+  </view>
+
+  <view class="section">
     <view class="section_title">出售价格：</view>
     <input class="section_input" maxlength="6" name="price"  placeholder="请输入价格"/>
   </view>

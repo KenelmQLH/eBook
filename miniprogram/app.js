@@ -1,15 +1,39 @@
 //app.js
+/*
+  "tabBar": {
+    "custom": true,
+    "color": "#000000",
+    "selectedColor": "#000000",
+    "backgroundColor": "#000000",
+    "list": [
+      {
+        "pagePath": "pages/books/books",
+        "text": "旧书"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我的"
+      }
+    ]
+  },
+  "usingComponents": {}
+  */
+
+
 App({
+  data:{
+    onsearch_name:null
+  },
+  /*
   //定义一个获取登录天数的函数
   getDayNum: function(timestamp) {
     let time = new Date().getTime();
     let timeDiff = time - timestamp;    //上一次的时间戳怎么办。。。。。。。。。。。。。。
     let dayNum = timeDiff / (1000 * 60 * 60 * 24)
     return dayNum;
-  },
+  },*/
 
   onLaunch: function () {
-    
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
@@ -29,12 +53,13 @@ App({
       }
     })
     */
+    /*
     //用户已经登陆并且三天之内登陆的，会主动跳转，否则就得重新登陆了
     if (wx.getStorageSync("ifLog") && time.GetDayNum(wx.getStorageSync("timeStamp")) < 3) {
       wx.switchTab({
-        url: 'pages/mine/mine'
+        url: 'pages/me/me'
       })
-    }
+    }*/
 
 
     this.globalData = {}  //全局变量

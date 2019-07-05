@@ -1,6 +1,9 @@
 <!--pages/login/login.wxml-->
 
 <form class="formCss" bindsubmit="formSubmit">
+  <view class="top">
+    <image mode="aspectFit" src="{{userImg}}" style='width:250rpx;height:250rpx;'></image>
+  </view>
 
 <view class="section">
   <view class="section__title">昵称</view>
@@ -18,7 +21,7 @@
   </view>
 
   <view class="btn-area">
-    <button formType="submit" type="primary" open-type="getUserInfo" bindgetuserinfo='getU'>提交</button>
+    <button formType="submit" type="primary">确认修改</button>
     <!--open-type="getUserInfo" bindgetuserinfo='getU'-->
   </view>
 
