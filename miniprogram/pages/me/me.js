@@ -10,16 +10,13 @@ const app = getApp()
 
 Page({
   data: {
-    //fans: 0,
-    //follow: 0,
-    //likes: 0,
-    currentTab:0, //切换标签的标记
 
+    currentTab:0, //切换标签的标记
     userImg: "",
     userName: "测试",
-    userPhoneNumber:"测试",
+    userphoneNumber:"测试",
     userWeixingNumber:"测试",
-    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@--待删掉初始信息
+    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@--待删掉初始信息
     my_bo0ks : []
     /*
     my_books: [{
@@ -40,62 +37,30 @@ Page({
   
   //----------------初始化用户信息---------------//
   onLoad:function(){
-    //template.tabbar("tabBar", 2, this)//1表示第二个tabbar
-    /*
-    let _this = this;
-    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@---向数据库请求数据---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
-    //console.log("now getting  user's book_info:", _this.data);
-    db.collection('all_books').where({
-      // gt 方法用于指定一个 "大于" 条件，此处 _.gt(30) 是一个 "大于 30" 的条件
-      nickName: "Kenelm",
-      phoneNumber: "13806086411"
-    }).get({
-      success: function (res) {
-        console.log("book_info: res.data", res.data);
-        _this.setData({
-          my_books: res.data
-        })
-      }
-    })
-    */
+
   },
   
   onShow: function () {
     let _this = this;
 
-    //-------------如果已经登陆过，则直接从缓存中加载信息，并向数据库请求数据----------------//
+    //--------如果已经登陆过，则直接从缓存中加载信息，并向数据库请求数据------------//
     if (wx.getStorageSync("if-log") === true) {
-      
       //---------从缓存中加载用户信息------------//
       console.log("i am loading user's info")
       _this.setData({
         userImg: wx.getStorageSync("img-url"),
         userName: wx.getStorageSync("nickName"),
-        userPhoneNumber: wx.getStorageSync("phoneNumber"),
+        userphoneNumber: wx.getStorageSync("phoneNumber"),
         userWeixingNumber: wx.getStorageSync("weixingNumber")
       })
       console.log("now user's info:", _this.data);
-
-
-      //------------用云函数查看openid等星系-------------//
-      wx.cloud.callFunction({
-        name: 'login',
-        complete: res => {
-          console.log('callFunction test result: ', res)
-        }
-      })
-
-      console.log("_this.data: ", _this.data)
     }
-    console.log("i finished initialize Page Mine")
-
-
-
-    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@---向数据库请求数据---@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//
-    //console.log("now getting  user's book_info:", _this.data);
+    console.log("i finished initialize UserInfo Mine :",_this.data)
+    //@@@@@@@@@@@@@@@@@---向数据库请求数据---@@@@@@@@@@@@@@@@@@@//
     db.collection('all_books').where({
+      //_openid
       nickName: _this.data.userName,
-      phoneNumber: _this.data.userPhoneNumber
+      phoneNumber: _this.data.userphoneNumber
     }).get({
       success: function (res) {
         console.log("book_info: res.data", res.data);

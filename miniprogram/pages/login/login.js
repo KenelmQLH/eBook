@@ -9,7 +9,7 @@ Page({
   },
 
   onLoad: function (options) {
-    wx.clearStorage();           // ----------------注意缓存的调试
+    //wx.clearStorage();           // ----------------注意缓存的调试
     wx.getStorageInfo({
       success: function(res) {
         console.log("Storage info: ",res)
@@ -81,9 +81,9 @@ Page({
       })
     }
     else if (status == 'getUserInfo:ok') {  //此时用户点击了同意授权
+      
       //------------保存数据进缓存---------------//
-
-        wx.setStorage({    //数据缓存方法
+        wx.setStorage({
         key: 'user_key',   //关键字，本地缓存中指定的key
         data: e.detail.userInfo,    //缓存微信用户公开信息，
         //看到上面的截图就能看到，数据是在detail里的
@@ -98,11 +98,9 @@ Page({
       //--------------写入缓存---------------//
       wx.setStorageSync('img-url',e.detail.userInfo.avatarUrl)
       wx.setStorageSync('if-log', true)
-
       wx.setStorageSync("weixingNumber", _this.data.weixingNumber);
       wx.setStorageSync("phoneNumber", _this.data.phoneNumber);
       wx.setStorageSync("nickName", _this.data.nickName);
-
       console.log("showing now Storage:", wx.getStorageInfoSync())
     
       wx.showToast({
@@ -112,7 +110,6 @@ Page({
       })
       //=----------------执行跳转-----------------------//
       wx.switchTab({    
-        //wx.navigateTo会形成父子级关系，wx.switchTab是同级
         url: "../me/me"
       })
     }
