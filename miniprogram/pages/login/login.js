@@ -4,23 +4,35 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {
-      
+  data: {  
   },
 
   onLoad: function (options) {
     //wx.clearStorage();           // ----------------注意缓存的调试
-    wx.getStorageInfo({
-      success: function(res) {
-        console.log("Storage info: ",res)
-      },
-    })
-    //若已经登录过则直接跳转
+    // wx.getStorageInfo({
+    //   success: function(res) {
+    //     console.log("check Storage info in login: ",res)
+    //   },
+    // })
+    //若已经登录过则直接跳转@@@@@@@@@@@@@@@@@@@@@@@@@@@@（注意我用的“同步”）
     if (wx.getStorageSync("if-log") === true) {
       wx.switchTab({
         url: "../me/me"
       })
     }
+    else{
+      console.log("hi i am in else")
+      //------------用云函数查看并保存openid等信息-------------//
+      wx.cloud.callFunction({
+        name: 'login',
+        complete: res => {
+          console.log('callFunction login result: ', res)
+          wx.setStorageSync("user-openid", res.result.openid)
+        }
+      })
+      
+    }
+
   },
 
   //调试得知提交事件在按钮绑定事件发生之前！！！但是如果没有填写完整信息表单事件不执行！
@@ -58,10 +70,7 @@ Page({
   },
 
   getU: function (e) {
-    console.log("发生了授权点击事件！")
     console.log('发生了授权点击事件！返回e：', e)
-    console.log(e.detail.errMsg)
-
     let _this = this;
     //-------------判断输入是否非空---------------//
     if ( _this.data.nickName== undefined ||_this.data.phoneNumber == undefined || _this.data.weixingNumber == undefined) {
@@ -81,10 +90,9 @@ Page({
       })
     }
     else if (status == 'getUserInfo:ok') {  //此时用户点击了同意授权
-      
-      //------------保存数据进缓存---------------//
+      //------------保存微信非敏感信息数据进缓存---------------//
         wx.setStorage({
-        key: 'user_key',   //关键字，本地缓存中指定的key
+        key: 'user-Info',   
         data: e.detail.userInfo,    //缓存微信用户公开信息，
         //看到上面的截图就能看到，数据是在detail里的
         success: function (e) {      //缓存成功后，输出提示
@@ -98,6 +106,7 @@ Page({
       //--------------写入缓存---------------//
       wx.setStorageSync('img-url',e.detail.userInfo.avatarUrl)
       wx.setStorageSync('if-log', true)
+
       wx.setStorageSync("weixingNumber", _this.data.weixingNumber);
       wx.setStorageSync("phoneNumber", _this.data.phoneNumber);
       wx.setStorageSync("nickName", _this.data.nickName);

@@ -1,6 +1,6 @@
 const cloud = require('wx-server-sdk')
 cloud.init()
-const db = cloud.database({env: 'books - info - mqg58'})
+const db = cloud.database({env: 'books-info-mqg58'})
 const MAX_LIMIT = 100
 exports.main = async (event, context) => {
   // 先取出集合记录总数

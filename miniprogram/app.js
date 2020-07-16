@@ -28,26 +28,14 @@ App({
   onLaunch: function () {
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
-    } else {
+    }
+    else {
       wx.cloud.init({
-        env: "books-info-mqg58",
+        env: 'books-info-mqg58',
         traceUser: true,
       })
+      console.log('完成初始化云环境！')
     }
-    //------------用云函数查看并保存openid等信息-------------//
-    wx.cloud.callFunction({
-      name: 'login',
-      complete: res => {
-        console.log('callFunction login result: ', res)
-        wx.setStorageSync("user-openid", res.result.openid)
-        wx.getStorage({
-          key: 'user-openid',
-          success: function(res) {
-            console.log(res.data)
-          },
-        })
-      }
-    })
     this.globalData = {}  //全局变量
   }
 /*检查用户登陆态，不知道是不是要放在这里，貌似不太搭
@@ -58,6 +46,7 @@ App({
       fail() {
         console.log("此时登陆态失效，需要重新登陆")
         login.login(0)
+        //
       }
     })
 

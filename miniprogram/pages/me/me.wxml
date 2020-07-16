@@ -13,8 +13,8 @@
       </view>
       <!-- 添加手机号和微信号 -->
       <view class=" Authentication">
-        <view class='autho'>Phone:{{userPhoneNumber}}</view>
-        <view class='autho'>Weixing:{{userWeixingNumber}}</view>
+        <view class='autho'>Phone:{{userphoneNumber}}</view>
+        <view class='autho'>Weixing:{{userweixingNumber}}</view>
       </view>
     </view>
 

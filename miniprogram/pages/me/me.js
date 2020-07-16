@@ -1,8 +1,5 @@
-const db = wx.cloud.database({
-  env: 'books-info'
-})
+const db = wx.cloud.database();
 var util = require('../../utils/util.js');
-const _ = db.command
 
 const app = getApp()
 //var template = require('../../template/template.js');
@@ -10,34 +7,21 @@ const app = getApp()
 
 Page({
   data: {
-
     currentTab:0, //切换标签的标记
     userImg: "",
-    userName: "测试",
-    userphoneNumber:"测试",
-    userWeixingNumber:"测试",
-    //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@--待删掉初始信息
-    my_bo0ks : []
-    /*
-    my_books: [{
-      bookname: "数据结构",
-      price: "12",
-      info: "第一次测试"
-    },{
-        bookname: "大学物理",
-        price: "13",
-        info: "第2次测试，yes!"
-      }, {
-        bookname: "大学物理下",
-        price: "13",
-        info: "第3次测试，yes!"
-      }]*/
-    
+    userName: "",
+    userphoneNumber:"",
+    userweixingNumber:"",
+    my_books : []
   },
   
   //----------------初始化用户信息---------------//
   onLoad:function(){
-
+    wx.getStorageInfo({
+      success: function (res) {
+        console.log("Storage info: ", res)
+      },
+    })
   },
   
   onShow: function () {
@@ -51,46 +35,45 @@ Page({
         userImg: wx.getStorageSync("img-url"),
         userName: wx.getStorageSync("nickName"),
         userphoneNumber: wx.getStorageSync("phoneNumber"),
-        userWeixingNumber: wx.getStorageSync("weixingNumber")
+        userweixingNumber: wx.getStorageSync("weixingNumber")
       })
-      console.log("now user's info:", _this.data);
     }
-    console.log("i finished initialize UserInfo Mine :",_this.data)
+    console.log("i finished initialize UserInfo in Mine :",_this.data)
     //@@@@@@@@@@@@@@@@@---向数据库请求数据---@@@@@@@@@@@@@@@@@@@//
     db.collection('all_books').where({
-      //_openid
-      nickName: _this.data.userName,
-      phoneNumber: _this.data.userphoneNumber
+      _openid: wx.getStorageSync("user-openid"),
+      // nickName: _this.data.userName,
+      // phoneNumber: _this.data.userphoneNumber
     }).get({
       success: function (res) {
-        console.log("book_info: res.data", res.data);
+        console.log("get book_info success: res.data", res,_this.data);
         _this.setData({
           my_books: res.data
         })
+      },
+      fail:function(err){
+        console.log("get book_info fail: res=", err);
       }
+
     })
+    
   },
   
-
+  //切换“我的发布”和“已完成”
   switchNav:function(e){
     var id=e.currentTarget.id;
     this.setData({currentTab:id});
   },
-  showName(){
-    return that.data.name;
-  },
-  showAuthentication(){
-    return that.data.autho;
-  },
 
+  
   jumpAdd: function () {
     wx.navigateTo({
       url: '../addBook/addBook',
     })
   },
 
+//删除我的发布
   deleteBook:function(event){
-
     let _this = this;
     //console.log("event: ",event);
     db.collection('all_books').doc(event.currentTarget.dataset.bookId).remove({
@@ -102,16 +85,5 @@ Page({
       }
     })
     _this.onShow();
-    /*
-    exports.main = async (event, context) => {
-      try {
-        return await db.collection('todos').where({
-          done: true
-        }).remove()
-      } catch (e) {
-        console.error(e)
-      }
-    }
-    */
   }
 })
