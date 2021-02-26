@@ -1,4 +1,12 @@
-# 云开发 quickstart
+# eBook
+使用微信小程序开发了一个旧书交易平台。
+提供旧书信息的发布和查询功能。
+
+## 功能展示
+![图片1（信息页1）](https://github.com/KenelmQLH/eBook/raw/master/pic/pic1.png)
+![图片1（信息页2）](https://github.com/KenelmQLH/eBook/raw/master/pic/pic2.png)
+
+## 云开发 quickstart
 
 这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
 
